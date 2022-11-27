@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(216, 230, 199);
+}
+html{
+    background-color: aqua;
+}
+.row{
+    margin: 20px;
+    padding: 10px;
+}
+button{
+    text-align: center;
+    align-items: center;
+    color: black;
+}

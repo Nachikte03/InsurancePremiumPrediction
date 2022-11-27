@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {%block content%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link href="{% static 'home.css' %}" rel="stylesheet" />
+  </head>
+  <style>
+    container {
+      background-color: rgb(216, 230, 199);
+    }
+    .row {
+      margin: 20px;
+      padding: 10px;
+    }
+    .button {
+      text-align: center;
+      align-items: center;
+      color: black;
+    }
+    .result {
+        margin-top:10px;
+        text-align: center;
+        align-items: center;
+        color: green;
+      }
+  </style>
+  <body>
+    <div class="container">
+      <div class="result">
+        {{result}}
+      </div>
+      <form action={% url 'home'%} method='POST'>
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Age</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="age"
+              placeholder="Age(in Years) Should be in between 10 & 70"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Sex</label>
+          <div class="col-sm-10">
+            <select
+              class="form-control"
+              id="exampleFormControlSelect1"
+              name="sex"
+            >
+              <option disabled selected>Select</option>
+              <option value="0">Male</option>
+              <option value="1">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">BMI</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="bmi"
+              placeholder="Enter Valid BMI Value"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"
+            >Children</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="staticEmail"
+              name="children"
+              placeholder="Enter Number of Children"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"
+            >Smoker</label
+          >
+          <div class="col-sm-10">
+            <select
+              class="form-control"
+              id="exampleFormControlSelect1"
+              name="smoker"
+            >
+              <option disabled selected>Select</option>
+              <option value="1">Yes</option>
+              <option value= "0">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"
+            >Region</label
+          >
+          <div class="col-sm-10">
+            <select
+              class="form-control"
+              id="exampleFormControlSelect1"
+              name="region"
+            >
+              <option disabled selected>Select</option>
+              <option value ="0">SouthEast</option>
+              <option value="1">SouthWest</option>
+              <option value="2">NorthEast</option>
+              <option value="3">NorthWest</option>
+            </select>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+{%endblock%}
